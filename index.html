@@ -26,6 +26,7 @@
         (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='//rawgit.com/mrdoob/stats.js/master/build/stats.min.js';document.head.appendChild(script);})()
 
         var scene=new THREE.Scene();
+        scene.background = new THREE.Color( 0xff0000 );
         var camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
 
         var renderer=new THREE.WebGLRenderer();
@@ -145,7 +146,7 @@
         // Instantiate a loader
         var loader = new THREE.GLTFLoader();
         // Load a glTF resource
-        loader.load('models/marmelab.gltf',// resource URL
+        loader.load('models/plane.gltf',// resource URL
             function ( gltf ) { // called when the resource is loaded
                 scene.add( gltf.scene );
                 gltf.animations; // Array<THREE.AnimationClip>
@@ -161,7 +162,7 @@
         );
 
         // Change postion of camera from origin to more towards us
-        camera.position.z=3;
+        camera.position.z=3; 
 
         // Add Analyph Effect
         // var effect=new THREE.AnaglyphEffect(renderer);
